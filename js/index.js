@@ -16,6 +16,7 @@
 * specific language governing permissions and limitations
 * under the License.
 */
+var token;
 var app = {
   // Application Constructor
   initialize: function() {
@@ -37,10 +38,12 @@ var app = {
       firebase.auth().getRedirectResult().then(function(result) {
         if (result.credential) {
           // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-          var token = result.credential.accessToken;
-          // ...
+          token = result.credential.accessToken;
         }
         // The signed-in user info.
+        // Redirect view to app home page
+        window.location.href="home.html";
+        showMap();
         var user = result.user;
       }).catch(function(error) {
         // Handle Errors here.
@@ -59,15 +62,7 @@ var app = {
 
   // Update DOM on a Received Event
   receivedEvent: function(id) {
-    // var parentElement = document.getElementById(id);
-    // var listeningElement = parentElement.querySelector('.listening');
-    // var receivedElement = parentElement.querySelector('.received');
-    //
-    // listeningElement.setAttribute('style', 'display:none;');
-    // receivedElement.setAttribute('style', 'display:block;');
-    //
-    // console.log('Received Event: ' + id);
+
   }
 };
-
 app.initialize();

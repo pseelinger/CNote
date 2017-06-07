@@ -1,4 +1,4 @@
-<!--This is the app login screen -->
+<!-- Home page of the app when the user is logged in -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,11 +33,18 @@
   <link rel="stylesheet" href="css/index.css" />
 </head>
 <body>
-  <h1>CNote</h1>
-  <div id="login">
-    <button id="fb-login">Login with Facebook</button>
+  <div data-role="header">
+    <a href="home.html" data-icon="home">Home</a>
+    <h1>CNote</h1>
+    <a href="#" data-icon="bars">Menu</a>
+  </div>
+  <div id="app">
+    <div style="width:100%;height:400px" id="map_canvas"></div>
+    <button id="button">Full Screen</button>
+    <p id="data"></p>
   </div>
   <script type="text/javascript" src="cordova.js"></script>
+  <script type="text/javascript" src="js/map.js"></script>
   <script type="text/javascript" src="js/index.js"></script>
 </body>
 </html>

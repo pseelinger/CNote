@@ -35,9 +35,6 @@ body {
 }
 
 /* Portrait layout (default) */
-/*#app {
-  display: none;
-}*/
 
 /* Landscape layout (with min-width) */
 @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
