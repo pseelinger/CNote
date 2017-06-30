@@ -98,10 +98,16 @@ h1 {
   text-align: center;
 }
 #stories{
-  text-align: center;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
+  padding: 5px;
+  text-transform: initial;
+}
+.story-title{
+  font-size: 1.75em;
 }
 .story-excerpt{
-  text-align: left;
-  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 1.25em;
+}
+.story-img{
+  max-width: 100%;
 }

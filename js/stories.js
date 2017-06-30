@@ -20,9 +20,16 @@ function getStories(url, divID){
   $.getJSON(url, function(result){
     var stories = result.posts;
     stories.forEach(function(story){
-      $(divID).append("<a href='" + story.url  + "'>" +
-      "<p class='story-title'>" + story.title_plain + "</p></a>" +
-      "<div class='story-excerpt'>" + story.excerpt + "</div>");
+      if(story.thumbnail == null){
+        $(divID).append("<a href='" + story.url  + "'>" +
+        "<p class='story-title'>" + story.title_plain + "</p></a>" +
+        "<div class='story-excerpt'>" + story.excerpt + "</div>");
+      }else{
+        $(divID).append("<a href='" + story.url  + "'>" +
+        "<p class='story-title'>" + story.title_plain + "</p></a>" +
+        "<img src='" + story.thumbnail + "' class='story-img' />" +
+        "<div class='story-excerpt'>" + story.excerpt + "</div>");
+      }
     });
   });
 }

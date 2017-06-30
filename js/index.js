@@ -83,8 +83,8 @@ var app = {
       console.error(error);
     });
 
+    //Open the link embedded in the notification
     window.FirebasePlugin.onNotificationOpen(function(notification) {
-      console.log(notification);
       window.open(notification.link);
     }, function(error) {
       console.error(error);
