@@ -12,6 +12,10 @@
   <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
   <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
 
+
+  <!-- Angular -->
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script> -->
+
   <!-- Firebase -->
   <script src="https://www.gstatic.com/firebasejs/4.1.1/firebase.js"></script>
   <script src="https://www.gstatic.com/firebasejs/4.0.0/firebase-app.js"></script>
@@ -41,10 +45,18 @@
   <div id="app">
     <div style="width:100%;height:400px" id="map_canvas"></div>
     <button id="button">Full Screen</button>
-    <p id="data"></p>
+    <div id="stories">
+            <h2 id="all" onclick="switchTabs('#all-content', '#all')">All News</h2>
+            <h2  id="news" onclick="switchTabs('#news-content', '#news')">News</h2>
+            <h2  id="sports" onclick="switchTabs('#sports-content', '#sports')">Sports</h2>
+            <div id="all-content"></div>
+            <div id="news-content"></div>
+            <div id="sports-content"></div>
+    </div>
   </div>
   <script type="text/javascript" src="cordova.js"></script>
   <script type="text/javascript" src="js/map.js"></script>
   <script type="text/javascript" src="js/index.js"></script>
+  <script type="text/javascript" src="js/stories.js"></script>
 </body>
 </html>

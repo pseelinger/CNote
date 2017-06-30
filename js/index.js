@@ -17,6 +17,7 @@
 * under the License.
 */
 var token;
+var database = firebase.database();
 var app = {
   // Application Constructor
   initialize: function() {
@@ -67,10 +68,14 @@ var app = {
     window.FirebasePlugin.getToken(function(token) {
       // save this server-side and use it to push notifications to this device
       console.log(token);
+      var user = firebase.auth().currentUser;
+      console.log(user.uid);
+      console.log(user.email);
+      writeUserData(user.uid, user.email, token);
     }, function(error) {
       console.error(error);
     });
-    
+
     window.FirebasePlugin.onTokenRefresh(function(token) {
       // save this server-side and use it to push notifications to this device
       console.log(token);
@@ -80,10 +85,18 @@ var app = {
 
     window.FirebasePlugin.onNotificationOpen(function(notification) {
       console.log(notification);
+      window.open(notification.link);
     }, function(error) {
       console.error(error);
     });
   }
 };
+
+function writeUserData(userId, name, token){
+  firebase.database().ref('users/' + userId).set({
+    username: name,
+    accessToken: token
+  });
+}
 
 app.initialize();
