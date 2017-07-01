@@ -37,25 +37,108 @@
   <link rel="stylesheet" href="css/index.css" />
 </head>
 <body>
-  <div data-role="header">
-    <a href="home.html" data-icon="home">Home</a>
-    <h1>CNote</h1>
-    <a href="#" data-icon="bars">Menu</a>
-  </div>
   <div id="app">
-    <div style="width:100%;height:400px" id="map_canvas"></div>
-    <button id="button">Full Screen</button>
-    <div id="stories">
-            <h2 id="all" onclick="switchTabs('#all-content', '#all')">All News</h2>
-            <h2  id="news" onclick="switchTabs('#news-content', '#news')">News</h2>
-            <h2  id="sports" onclick="switchTabs('#sports-content', '#sports')">Sports</h2>
-            <div id="all-content"></div>
-            <div id="news-content"></div>
-            <div id="sports-content"></div>
+
+    <div id="all-content" data-role="page">
+      <div data-role="header" data-id="fixed-nav" data-position="fixed" class="header">
+        <a href="home.html" data-icon="home">Home</a>
+        <h1>CNote</h1>
+        <a href="#" data-icon="bars">Menu</a>
+      </div>
+      <!-- <div style="width:100%;height:400px" id="map_canvas"></div>
+      <button id="button">Full Screen</button> -->
+      <div data-role="footer" data-id="fixed-nav" data-position="fixed" >
+        <div data-role="navbar">
+          <ul>
+            <li><a href="#all-content">All</a></li>
+            <li><a href="#news-content" data-transition="slide">News</a></li>
+            <li><a href="#sports-content" data-transition="slide">Sports</a></li>
+            <li><a href="#obituaries-content" data-transition="slide">Obituaries</a></li>
+            <li><a href="#classifieds-content" data-transition="slide">Classifieds</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
+
+    <div id="news-content" data-role="page">
+      <div data-role="header" class="header" data-id="fixed-nav" data-position="fixed">
+        <a href="home.html" data-icon="home">Home</a>
+        <h1>CNote</h1>
+        <a href="#" data-icon="bars">Menu</a>
+      </div>
+      <div data-role="footer" data-id="fixed-nav" data-position="fixed" >
+        <div data-role="navbar">
+          <ul>
+            <li><a href="#all-content">All</a></li>
+            <li><a href="#news-content" data-transition="slide">News</a></li>
+            <li><a href="#sports-content" data-transition="slide">Sports</a></li>
+            <li><a href="#obituaries-content" data-transition="slide">Obituaries</a></li>
+            <li><a href="#classifieds-content" data-transition="slide">Classifieds</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div id="sports-content" data-role="page">
+      <div data-role="header" class="header" data-id="fixed-nav" data-position="fixed">
+        <a href="home.html" data-icon="home">Home</a>
+        <h1>CNote</h1>
+        <a href="#" data-icon="bars">Menu</a>
+      </div>
+      <div data-role="footer" data-id="fixed-nav" data-position="fixed" >
+        <div data-role="navbar">
+          <ul>
+            <li><a href="#all-content">All</a></li>
+            <li><a href="#news-content" data-transition="slide">News</a></li>
+            <li><a href="#sports-content" data-transition="slide">Sports</a></li>
+            <li><a href="#obituaries-content" data-transition="slide">Obituaries</a></li>
+            <li><a href="#classifieds-content" data-transition="slide">Classifieds</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div id="obituaries-content" data-role="page">
+      <div data-role="header" class="header" data-id="fixed-nav" data-position="fixed">
+        <a href="home.html" data-icon="home">Home</a>
+        <h1>CNote</h1>
+        <a href="#" data-icon="bars">Menu</a>
+      </div>
+      <div data-role="footer" data-id="fixed-nav" data-position="fixed" >
+        <div data-role="navbar">
+          <ul>
+            <li><a href="#all-content">All</a></li>
+            <li><a href="#news-content" data-transition="slide">News</a></li>
+            <li><a href="#sports-content" data-transition="slide">Sports</a></li>
+            <li><a href="#obituaries-content" data-transition="slide">Obituaries</a></li>
+            <li><a href="#classifieds-content" data-transition="slide">Classifieds</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div id="classifieds-content" data-role="page">
+      <div data-role="header" class="header" data-id="fixed-nav" data-position="fixed">
+        <a href="home.html" data-icon="home">Home</a>
+        <h1>CNote</h1>
+        <a href="#" data-icon="bars">Menu</a>
+      </div>
+      <div data-role="footer" data-id="fixed-nav" data-position="fixed" >
+        <div data-role="navbar">
+          <ul>
+            <li><a href="#all-content">All</a></li>
+            <li><a href="#news-content" data-transition="slide">News</a></li>
+            <li><a href="#sports-content" data-transition="slide">Sports</a></li>
+            <li> <a href="#obituaries-content" data-transition="slide">Obituaries</a></li>
+            <li><a href="#classifieds-content" data-transition="slide">Classifieds</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
   </div>
   <script type="text/javascript" src="cordova.js"></script>
-  <script type="text/javascript" src="js/map.js"></script>
+  <!-- <script type="text/javascript" src="js/map.js"></script> -->
   <script type="text/javascript" src="js/index.js"></script>
   <script type="text/javascript" src="js/stories.js"></script>
 </body>

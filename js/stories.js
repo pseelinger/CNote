@@ -14,6 +14,16 @@ var categories = [{
                           "url": "https://nrcolumbus.com/?category_slug=sports&json=get_category_posts",
                           "id": "#sports",
                           "contentID": "#sports-content"
+                  },
+                  {
+                          "url": "https://nrcolumbus.com/?category_slug=obituaries&json=get_category_posts",
+                          "id": "#obituaries",
+                          "contentID": "#obituaries-content"
+                  },
+                  {
+                          "url": "https://nrcolumbus.com/?category_slug=classifieds&json=get_category_posts",
+                          "id": "#classifieds",
+                          "contentID": "#classifieds-content"
                   }];
 
 function getStories(url, divID){
@@ -21,12 +31,12 @@ function getStories(url, divID){
     var stories = result.posts;
     stories.forEach(function(story){
       if(story.thumbnail == null){
-        $(divID).append("<a href='" + story.url  + "'>" +
-        "<p class='story-title'>" + story.title_plain + "</p></a>" +
+        $(divID).find(".header").after("<a class='story-title' href='" + story.url  + "'>" +
+        "<p>" + story.title_plain + "</p></a>" +
         "<div class='story-excerpt'>" + story.excerpt + "</div>");
       }else{
-        $(divID).append("<a href='" + story.url  + "'>" +
-        "<p class='story-title'>" + story.title_plain + "</p></a>" +
+        $(divID).find(".header").after("<a class='story-title' href='" + story.url  + "'>" +
+        "<p>" + story.title_plain + "</p></a>" +
         "<img src='" + story.thumbnail + "' class='story-img' />" +
         "<div class='story-excerpt'>" + story.excerpt + "</div>");
       }
@@ -35,21 +45,21 @@ function getStories(url, divID){
 }
 
 //Hide and show tabs for categories
-function switchTabs(showDiv, header){
-  categories.forEach(function(cat){
-    $(cat.contentID).hide();
-    $(cat.id).css("color", "blue");
-  });
-  $(showDiv).show();
-  $(header).css("color", "black");
-}
+// function switchTabs(showDiv, header){
+//   categories.forEach(function(cat){
+//     $(cat.contentID).hide();
+//     $(cat.id).css("color", "blue");
+//   });
+//   $(showDiv).show();
+//   $(header).css("color", "black");
+// }
 
 //Prepare the categories for display
 categories.forEach(function(cat){
   getStories(cat.url, cat.contentID);
-  $(cat.contentID).hide();
-  $(cat.id).css("color", "blue");
+  // $(cat.contentID).hide();
+  // $(cat.id).css("color", "blue");
 });
 
-$("#all-content").show();
-$("#all").css("color", "black");
+// $("#all-content").show();
+// $("#all").css("color", "black");
