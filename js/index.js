@@ -29,74 +29,72 @@ var app = {
   // Bind any cordova events here. Common events are:
   // 'pause', 'resume', etc.
   onDeviceReady: function() {
-    this.receivedEvent('deviceready');
 
-    //Facebook Login
-    $('#fb-login').click(function(){
-      var provider = new firebase.auth.FacebookAuthProvider();
-      firebase.auth().signInWithRedirect(provider);
 
-      firebase.auth().getRedirectResult().then(function(result) {
-        if (result.credential) {
-          // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-          token = result.credential.accessToken;
-        }
-        // The signed-in user info.
-        // Redirect view to app home page
-        window.location.href="home.html";
-        showMap();
-        var user = result.user;
-      }).catch(function(error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // The email of the user's account used.
-        var email = error.email;
-        // The firebase.auth.AuthCredential type that was used.
-        var credential = error.credential;
-        // ...
+
+      this.receivedEvent('deviceready');
+      //Facebook Login
+      $('#fb-login').click(function(){
+        var provider = new firebase.auth.FacebookAuthProvider();
+        firebase.auth().signInWithRedirect(provider);
+
+        firebase.auth().getRedirectResult().then(function(result) {
+          if (result.credential) {
+            // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+            token = result.credential.accessToken;
+            // Redirect view to app home page
+            window.location.href="index.html";
+          }
+          // The signed-in user info.
+          var user = result.user;
+        }).catch(function(error) {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          // The email of the user's account used.
+          var email = error.email;
+          // The firebase.auth.AuthCredential type that was used.
+          var credential = error.credential;
+          // ...
+        });
       });
-    });
 
+    },
 
-  },
+    // Update DOM on a Received Event
+    receivedEvent: function(id) {
 
-  // Update DOM on a Received Event
-  receivedEvent: function(id) {
+      //Get access token for notifications
+      window.FirebasePlugin.getToken(function(token) {
+        // save this server-side and use it to push notifications to this device
+        console.log(token);
+        var user = firebase.auth().currentUser;
+        writeUserData(user.uid, user.email, token);
+      }, function(error) {
+        console.error(error);
+      });
 
-    //Get access token for notifications
-    window.FirebasePlugin.getToken(function(token) {
-      // save this server-side and use it to push notifications to this device
-      console.log(token);
-      var user = firebase.auth().currentUser;
-      console.log(user.uid);
-      console.log(user.email);
-      writeUserData(user.uid, user.email, token);
-    }, function(error) {
-      console.error(error);
-    });
+      window.FirebasePlugin.onTokenRefresh(function(token) {
+        // save this server-side and use it to push notifications to this device
+        console.log(token);
+      }, function(error) {
+        console.error(error);
+      });
 
-    window.FirebasePlugin.onTokenRefresh(function(token) {
-      // save this server-side and use it to push notifications to this device
-      console.log(token);
-    }, function(error) {
-      console.error(error);
-    });
+      //Open the link embedded in the notification
+      window.FirebasePlugin.onNotificationOpen(function(notification) {
+        window.open(notification.link);
+      }, function(error) {
+        console.error(error);
+      });
+    }
+  };
 
-    //Open the link embedded in the notification
-    window.FirebasePlugin.onNotificationOpen(function(notification) {
-      window.open(notification.link);
-    }, function(error) {
-      console.error(error);
+  function writeUserData(userId, name, token){
+    firebase.database().ref('users/' + userId).set({
+      username: name,
+      accessToken: token
     });
   }
-};
 
-function writeUserData(userId, name, token){
-  firebase.database().ref('users/' + userId).set({
-    username: name,
-    accessToken: token
-  });
-}
-
-app.initialize();
+  app.initialize();
