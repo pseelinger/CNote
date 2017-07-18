@@ -26,12 +26,12 @@
   <script>
   // Initialize Firebase
   var config = {
-    apiKey: "AIzaSyDk5qD_Ojk4Fc0gMzhwvoDeyruJVqOeyNw",
-    authDomain: "cnote-1496198945552.firebaseapp.com",
-    databaseURL: "https://cnote-1496198945552.firebaseio.com",
-    projectId: "cnote-1496198945552",
-    storageBucket: "cnote-1496198945552.appspot.com",
-    messagingSenderId: "147040306120"
+    apiKey: "<YOUR API KEY>",
+    authDomain: "<YOUR AUTH DOMAIN>",
+    databaseURL: "<YOUR DATABASE URL>",
+    projectId: "<YOUR PROJECT ID>",
+    storageBucket: "<YOUR STORAGE BUCKET>",
+    messagingSenderId: "<YOUR MESSAGING SENDER ID>"
   };
   firebase.initializeApp(config);
   </script>
@@ -45,7 +45,7 @@
     <div data-role="panel" id="slide-out-menu" data-display="push">
       <ul>
         <li><a href="#" id="profile" class="ui-btn ui-icon-user ui-btn-icon-left">Profile</a></li>
-        <li><a href="#" id="notifications" class="ui-btn ui-icon-mail ui-btn-icon-left">Notifications</a></li>
+        <li><a href="notifications.html" id="notifications" class="ui-btn ui-icon-mail ui-btn-icon-left">Notifications</a></li>
         <li><a href="#" id="sign-out" class="ui-btn ui-icon-power ui-btn-icon-left">Sign Out</a></li>
       </ul>
     </div>
@@ -57,7 +57,7 @@
     </div>
 
     <!-- Content -->
-    <div data-role="main">
+    <div data-role="main" class="content">
       <div id="all-content" ng-show="all"></div>
       <div id="news-content" ng-show="news"></div>
       <div id="sports-content" ng-show="sports"></div>

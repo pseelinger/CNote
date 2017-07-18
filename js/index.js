@@ -67,7 +67,6 @@ var app = {
       //Get access token for notifications
       window.FirebasePlugin.getToken(function(token) {
         // save this server-side and use it to push notifications to this device
-        console.log(token);
         var user = firebase.auth().currentUser;
         writeUserData(user.uid, user.email, token);
       }, function(error) {
@@ -75,8 +74,7 @@ var app = {
       });
 
       window.FirebasePlugin.onTokenRefresh(function(token) {
-        // save this server-side and use it to push notifications to this device
-        console.log(token);
+        // save this server-side and use it to push notifications to this devic
       }, function(error) {
         console.error(error);
       });
@@ -91,7 +89,7 @@ var app = {
   };
 
   function writeUserData(userId, name, token){
-    firebase.database().ref('users/' + userId).set({
+    firebase.database().ref('users/' + userId).update({
       username: name,
       accessToken: token
     });

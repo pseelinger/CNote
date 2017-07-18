@@ -1,27 +1,27 @@
 //Generates the content for each of the stories tabs
 
 var categories = [{
-  "url": "https://nrcolumbus.com/?json=get_recent_posts",
+  "url": "<JSON URL>",
   "id": "#all",
   "contentID": "#all-content"
 },
 {
-  "url": "https://nrcolumbus.com/?category_slug=news&json=get_category_posts",
+  "url": "<JSON URL>",
   "id": "#news",
   "contentID": "#news-content"
 },
 {
-  "url": "https://nrcolumbus.com/?category_slug=sports&json=get_category_posts",
+  "url": "<JSON URL>",
   "id": "#sports",
   "contentID": "#sports-content"
 },
 {
-  "url": "https://nrcolumbus.com/?category_slug=obituaries&json=get_category_posts",
+  "url": "<JSON URL>",
   "id": "#obituaries",
   "contentID": "#obituaries-content"
 },
 {
-  "url": "https://nrcolumbus.com/?category_slug=classifieds&json=get_category_posts",
+  "url": "<JSON URL>",
   "id": "#classifieds",
   "contentID": "#classifieds-content"
 }];
@@ -44,21 +44,10 @@ function getStories(url, divID){
   });
 }
 
-//Hide and show tabs for categories
-// function switchTabs(showDiv, header){
-//   categories.forEach(function(cat){
-//     $(cat.contentID).hide();
-//     $(cat.id).css("color", "blue");
-//   });
-//   $(showDiv).show();
-//   $(header).css("color", "black");
-// }
 
 //Prepare the categories for display
 categories.forEach(function(cat){
   getStories(cat.url, cat.contentID);
-  // $(cat.contentID).hide();
-  // $(cat.id).css("color", "blue");
 });
 
 $("#sign-out").on('click', function(){
@@ -67,8 +56,6 @@ $("#sign-out").on('click', function(){
     window.location.href="login.html";
   }).catch(function(error) {
     // An error happened.
+    console.log(error);
   });
 });
-
-// $("#all-content").show();
-// $("#all").css("color", "black");
