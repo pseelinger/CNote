@@ -20,12 +20,12 @@
   <script>
   // Initialize Firebase
   var config = {
-    apiKey: "AIzaSyDk5qD_Ojk4Fc0gMzhwvoDeyruJVqOeyNw",
-    authDomain: "cnote-1496198945552.firebaseapp.com",
-    databaseURL: "https://cnote-1496198945552.firebaseio.com",
-    projectId: "cnote-1496198945552",
-    storageBucket: "cnote-1496198945552.appspot.com",
-    messagingSenderId: "147040306120"
+    apiKey: "<YOUR API KEY>",
+    authDomain: "<YOUR AUTH DOMAIN>",
+    databaseURL: "<YOUR DATABASE URL>",
+    projectId: "<YOUR PROJECT ID>",
+    storageBucket: "<YOUR STORAGE BUCKET>",
+    messagingSenderId: "<YOUR MESSAGING SENDER ID>"
   };
   firebase.initializeApp(config);
   </script>
@@ -36,6 +36,14 @@
   <h1>CNote</h1>
   <div id="login">
     <button type="button" id="fb-login">Login with Facebook</button>
+  </div>
+  <div id="email-login">
+    <form id="email-form">
+      <label>Email<input type="email" name="Email" id="email"></input></label>
+      <label>Password<input type="password" name="Password" id="password"></input></label>
+      <button type="submit" name="Login">Login</button>
+      <button type="button" name="Create" id="create">Create Account</button>
+    </form>
   </div>
   <script type="text/javascript" src="cordova.js"></script>
   <script type="text/javascript" src="js/index.js"></script>

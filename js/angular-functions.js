@@ -6,15 +6,13 @@ function MainPageController($scope){
   $scope.all = true;
   $scope.news = false;
   $scope.sports = false;
-  $scope.obituaries = false;
-  $scope.classifieds = false;
+  $scope.events = false;
 
   $scope.changeCategory = function(category){
     $scope.all = false;
     $scope.news = false;
     $scope.sports = false;
-    $scope.obituaries = false;
-    $scope.classifieds = false;
+    $scope.events = false;
 
     $scope[category] = true;
   }

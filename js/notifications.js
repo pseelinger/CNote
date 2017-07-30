@@ -3,21 +3,19 @@ var user = firebase.auth().currentUser;
 $("#notification-form").submit(function(){
   var newsPref = $("#news-pref").prop('checked');
   var sportsPref = $("#sports-pref").prop('checked');
-  var obitsPref = $("#obits-pref").prop('checked');
-  var classPref = $("#class-pref").prop('checked');
-  writeUserPrefs(user.uid, newsPref, sportsPref, obitsPref, classPref);
+  var eventsPref = $("#events-pref").prop('checked');
+  writeUserPrefs(user.uid, newsPref, sportsPref, eventsPref);
   navigator.notification.alert("Preferences Saved!", goHome, "Preferences", "OK");
 });
 
-function writeUserPrefs(userId, newsPref, sportsPref, obitsPref, classPref){
+function writeUserPrefs(userId, newsPref, sportsPref, eventsPref){
   console.log(userId);
   var userPrefs = firebase.database().ref('users/' + userId);
 
   var prefs = {
-    news: newsPref,
-    sports: sportsPref,
-    obituaries: obitsPref,
-    classifieds: classPref
+    News: newsPref,
+    Sports: sportsPref,
+    Events: eventsPref
   };
 
   for(property in prefs){
@@ -31,8 +29,7 @@ function writeUserPrefs(userId, newsPref, sportsPref, obitsPref, classPref){
   userPrefs.child('notifications').set({
     news: newsPref,
     sports: sportsPref,
-    obituaries: obitsPref,
-    classifieds: classPref
+    events: eventsPref,
   });
 
 }

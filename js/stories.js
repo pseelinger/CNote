@@ -17,14 +17,10 @@ var categories = [{
 },
 {
   "url": "<JSON URL>",
-  "id": "#obituaries",
-  "contentID": "#obituaries-content"
-},
-{
-  "url": "<JSON URL>",
-  "id": "#classifieds",
-  "contentID": "#classifieds-content"
+  "id": "#events",
+  "contentID": "#events-content"
 }];
+
 
 function getStories(url, divID){
   $.getJSON(url, function(result){
