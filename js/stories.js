@@ -1,22 +1,22 @@
 //Generates the content for each of the stories tabs
 
 var categories = [{
-  "url": "<JSON URL>",
+  "url": "https://nrcolumbus.com/?json=get_recent_posts",
   "id": "#all",
   "contentID": "#all-content"
 },
 {
-  "url": "<JSON URL>",
+  "url": "https://nrcolumbus.com/?category_slug=news&json=get_category_posts",
   "id": "#news",
   "contentID": "#news-content"
 },
 {
-  "url": "<JSON URL>",
+  "url": "https://nrcolumbus.com/?category_slug=sports&json=get_category_posts",
   "id": "#sports",
   "contentID": "#sports-content"
 },
 {
-  "url": "<JSON URL>",
+  "url": "https://nrcolumbus.com/?category_slug=events&json=get_category_posts",
   "id": "#events",
   "contentID": "#events-content"
 }];
