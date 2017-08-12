@@ -1,0 +1,20 @@
+# Folders #
+
+node_modules/
+hooks/
+platforms/
+plugins/
+res/
+simulation/
+ul_web_hooks/
+
+# Files #
+._.DS_Store
+.DS_Store
+*.swo
+*.swp
+.npmignore
+._GoogleService-Info.plist
+GoogleService-Info.plist
+google-services.json
+._google-services.json
