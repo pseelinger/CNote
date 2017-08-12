@@ -9,6 +9,7 @@ simulation/
 ul_web_hooks/
 
 # Files #
+*.git
 ._.DS_Store
 .DS_Store
 *.swo
