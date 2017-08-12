@@ -1,9 +1,25 @@
 var user = firebase.auth().currentUser;
 
+var userPrefs = firebase.database().ref('users/' + user.uid);
+userPrefs.once('value').then(function(snapshot) {
+  var notificationPrefs = snapshot.child('notifications').val();
+
+  if (notificationPrefs.news == true) { $('#news-pref').val('on').slider("refresh"); }
+  if (notificationPrefs.sports == true) { $("#sports-pref").val('on').slider("refresh"); }
+  if (notificationPrefs.events == true) { $("#events-pref").val('on').slider("refresh"); }
+}).catch(function(error) {
+  console.log(error.message);
+});
+
+
+
 $("#notification-form").submit(function(){
-  var newsPref = $("#news-pref").prop('checked');
-  var sportsPref = $("#sports-pref").prop('checked');
-  var eventsPref = $("#events-pref").prop('checked');
+  var newsPref;
+  var sportsPref;
+  var eventsPref;
+  if ($("#news-pref").val() == "on") { newsPref = true; } else { newsPref = false; }
+  if ( $("#sports-pref").val() == "on") { sportsPref = true; } else { sportsPref = false; }
+  if ($("#events-pref").val() == "on") {eventsPref = true; } else { eventsPref = false; }
   writeUserPrefs(user.uid, newsPref, sportsPref, eventsPref);
   navigator.notification.alert("Preferences Saved!", goHome, "Preferences", "OK");
 });
@@ -17,6 +33,8 @@ function writeUserPrefs(userId, newsPref, sportsPref, eventsPref){
     Sports: sportsPref,
     Events: eventsPref
   };
+
+  console.log(prefs);
 
   for(property in prefs){
     if(prefs[property] == true){
