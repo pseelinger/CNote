@@ -92,6 +92,10 @@ var app = {
         console.log(error.message);
       });
 
+      function goHome(){
+        window.location.href="index.html";
+      }
+
     });
 
   },
@@ -109,7 +113,7 @@ var app = {
     });
 
     window.FirebasePlugin.onTokenRefresh(function(token) {
-      // save this server-side and use it to push notifications to this devic
+      // save this server-side and use it to push notifications to this device
     }, function(error) {
       console.error(error);
     });

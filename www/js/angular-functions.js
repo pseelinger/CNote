@@ -15,5 +15,7 @@ function MainPageController($scope){
     $scope.events = false;
 
     $scope[category] = true;
+
+     $("html, body").animate({ scrollTop: 0 }, "slow");
   }
 }

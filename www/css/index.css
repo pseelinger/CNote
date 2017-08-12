@@ -129,3 +129,6 @@ ul{
 #email-input, #password-input{
   display: none;
 }
+.notification-save-message {
+  display: none;
+}

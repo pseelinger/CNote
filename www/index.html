@@ -26,12 +26,12 @@
   <script>
   // Initialize Firebase
   var config = {
-    apiKey: "AIzaSyDk5qD_Ojk4Fc0gMzhwvoDeyruJVqOeyNw",
-    authDomain: "cnote-1496198945552.firebaseapp.com",
-    databaseURL: "https://cnote-1496198945552.firebaseio.com",
-    projectId: "cnote-1496198945552",
-    storageBucket: "cnote-1496198945552.appspot.com",
-    messagingSenderId: "147040306120"
+    apiKey: "<YOUR FIREBASE API KEY>",
+    authDomain: "<YOUR FIREBASE PROJECT ID>.firebaseapp.com",
+    databaseURL: "https://<YOUR FIREBASE PROJECT ID>.firebaseio.com",
+    projectId: "<YOUR FIREBASE PROJECT ID>",
+    storageBucket: "<YOUR FIREBASE PROJECT ID>.appspot.com",
+    messagingSenderId: "<YOUR FIREBASE MESSAGING SENDER ID>"
   };
   firebase.initializeApp(config);
   </script>
@@ -53,7 +53,7 @@
     <div data-role="header" data-position="fixed" class="header">
       <a href="#slide-out-menu" data-icon="bars">Menu</a>
       <h1>CNote</h1>
-      <a href="index.html" data-icon="home">Home</a>
+      <a class="home-button" href="index.html" data-icon="home">Home</a>
     </div>
 
     <!-- Content -->
@@ -78,7 +78,6 @@
 
   </div>
   <script type="text/javascript" src="cordova.js"></script>
-  <!-- <script type="text/javascript" src="js/map.js"></script> -->
   <script type="text/javascript" src="js/index.js"></script>
   <script type="text/javascript" src="js/stories.js"></script>
   <script>

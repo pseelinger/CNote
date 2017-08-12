@@ -6,7 +6,7 @@ var emailClicks = 0;
 
   $('#profile-email').html(user.email);
   $('#reset-email').on('click', function(){
-    if(emailClicks = 0){
+    if(emailClicks == 0){
       $('#email-input').css('display', 'inline-block');
       $('#reset-email').text("Submit");
       emailClicks = 1;
@@ -30,3 +30,7 @@ function writeProp(prop, change){
     prop: change,
   });
 }
+
+$('.home-button').click(function() {
+  window.location.href="index.html";
+});

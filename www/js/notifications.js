@@ -13,7 +13,7 @@ userPrefs.once('value').then(function(snapshot) {
 
 
 
-$("#notification-form").submit(function(){
+$("#save-notifications").on('click', function(){
   var newsPref;
   var sportsPref;
   var eventsPref;
@@ -21,7 +21,7 @@ $("#notification-form").submit(function(){
   if ( $("#sports-pref").val() == "on") { sportsPref = true; } else { sportsPref = false; }
   if ($("#events-pref").val() == "on") {eventsPref = true; } else { eventsPref = false; }
   writeUserPrefs(user.uid, newsPref, sportsPref, eventsPref);
-  navigator.notification.alert("Preferences Saved!", goHome, "Preferences", "OK");
+  // navigator.notification.alert("Preferences Saved!", goHome, "Preferences", "OK");
 });
 
 function writeUserPrefs(userId, newsPref, sportsPref, eventsPref){
@@ -48,13 +48,19 @@ function writeUserPrefs(userId, newsPref, sportsPref, eventsPref){
     news: newsPref,
     sports: sportsPref,
     events: eventsPref,
+  }).then(function() {
+    $('.notification-save-message').html('Notifications Saved!');
+    $('.notification-save-message').toggle();
+  }).catch(function(error){
+    $('.notification-save-message').html(error.message);
+    $('.notification-save-message').toggle();
   });
 
 }
 
-function goHome(){
+$('.home-button').click(function() {
   window.location.href="index.html";
-}
+});
 
 $("#sign-out").on('click', function(){
   firebase.auth().signOut().then(function() {
