@@ -26,15 +26,19 @@ function getStories(url, divID){
   $.getJSON(url, function(result){
     var stories = result.posts;
     stories.forEach(function(story){
+      console.log(story);
       if(story.thumbnail == null){
-        $(divID).append("<a class='story-title' href='" + story.url  + "'>" +
+        $(divID).append("<div class='story'><h4>" + story.categories[0]['title'] + "</h4><a class='story-title' href='" + story.url  + "'>" +
         "<p>" + story.title_plain + "</p></a>" +
-        "<div class='story-excerpt'>" + story.excerpt + "</div>");
+        "<div class='story-excerpt'>" + story.excerpt + "</div>" +
+        "<a class='read-more' href='" +story.url+"'>Read More >></a></div>"
+      );
       }else{
-        $(divID).append("<a class='story-title' href='" + story.url  + "'>" +
+        $(divID).append("<div class='story'><h4>" + story.categories[0]['title'] + "</h4><a class='story-title' href='" + story.url  + "'>" +
         "<p>" + story.title_plain + "</p></a>" +
         "<img src='" + story.thumbnail + "' class='story-img' />" +
-        "<div class='story-excerpt'>" + story.excerpt + "</div>");
+        "<div class='story-excerpt'>" + story.excerpt + "</div>" +
+        "<a class='read-more' href='" +story.url+"'>Read More >></a></div>");
       }
     });
   });
